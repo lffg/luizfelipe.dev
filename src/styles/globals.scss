@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+@font-face {
+  font-family: "Iosevka";
+  src: url("/fonts/iosevka-regular-minimal.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --color-link: #06c;
+
+  /* cspell:disable */
+  --font-mono: Iosevka, Menlo, Monaco, Lucida Console, Liberation Mono,
+    DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+  --font-serif: Lora, Constantia, "Lucida Bright", Lucidabright, "Lucida Serif",
+    Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia,
+    serif;
+  /* cspell:enable */
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-serif);
+  font-size: 19px;
+  color: #121212;
+}
+
+a {
+  color: var(--color-link);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+code,
+pre,
+samp {
+  font-family: var(--font-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  /* TODO */
+}
