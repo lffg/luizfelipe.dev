@@ -31,19 +31,6 @@
   }
 }
 
-.crumbs {
-  margin-bottom: 1rem;
-  padding-bottom: 1rem;
-  border-bottom: solid 3px #ddd;
-  color: #454545;
-  font-size: 85%;
-
-  & > *:not(:last-child)::after {
-    content: "\00b7"; /* &middot; */
-    margin: 0 0.5rem;
-  }
-}
-
 .meta {
   font-size: 85%;
   color: #454545;

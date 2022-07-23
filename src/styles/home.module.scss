@@ -6,7 +6,7 @@
 }
 
 .linkList li:not(:last-child)::after {
-  content: "-";
+  content: var(--middot);
   margin: 0 1.5rem;
 }
 

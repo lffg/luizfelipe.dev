@@ -1,10 +1,11 @@
 import { type GetStaticPaths, type GetStaticProps, type NextPage } from "next";
-import Head from "next/head";
 import Link from "next/link";
 
-import { PageWrapper } from "../../components/PageWrapper";
+import { Crumbs } from "../../components/crumbs";
+import { Head } from "../../components/head";
+import { PageWrapper } from "../../components/page-wrapper";
 import { getPostBySlug, getPostHeads, type Post } from "../../lib/blog";
-import postStyles from "../../styles/post.module.scss";
+import articleStyles from "../../styles/article.module.scss";
 
 type Props = {
   post: Post;
@@ -37,7 +38,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async (ctx) => {
   };
 };
 
-const Post: NextPage<Props> = ({ post }) => {
+const Article: NextPage<Props> = ({ post }) => {
   const fmt = new Intl.DateTimeFormat(post.head.meta.lang, {
     timeZone: "UTC",
     dateStyle: "long",
@@ -47,29 +48,17 @@ const Post: NextPage<Props> = ({ post }) => {
 
   return (
     <>
-      <Head>
-        <title>Luiz Felipe Gonçalves</title>
-        <meta
-          name="description"
-          content="Luiz Felipe Gonçalves' personal blog"
-        />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <Head title={post.head.title} />
 
       <PageWrapper>
-        <div className={postStyles.crumbs}>
-          <span>
-            <Link href="/">luizfelipe.dev</Link>
-          </span>
-          <span>blog</span>
-        </div>
-        <div className={postStyles.meta}>
+        <Crumbs>blog</Crumbs>
+        <div className={articleStyles.meta}>
           <span>Luiz Felipe Gonçalves</span>, <span>{fmt.format(date)}</span>
         </div>
         <h1>{post.head.title}</h1>
         <div
           id="article-content"
-          className={postStyles.articleContent}
+          className={articleStyles.articleContent}
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
       </PageWrapper>
@@ -77,4 +66,4 @@ const Post: NextPage<Props> = ({ post }) => {
   );
 };
 
-export default Post;
+export default Article;

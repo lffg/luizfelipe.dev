@@ -18,6 +18,8 @@
     Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia,
     serif;
   /* cspell:enable */
+
+  --middot: "\00b7";
 }
 
 *,
@@ -51,6 +53,7 @@ code,
 pre,
 samp {
   font-family: var(--font-mono);
+  font-variant-ligatures: none;
 }
 
 @media (prefers-color-scheme: dark) {

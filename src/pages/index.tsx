@@ -1,8 +1,8 @@
 import { type GetStaticProps, type NextPage } from "next";
-import Head from "next/head";
 import Link from "next/link";
 
-import { PageWrapper } from "../components/PageWrapper";
+import { Head } from "../components/head";
+import { PageWrapper } from "../components/page-wrapper";
 import { getPostHeads, type PostHead } from "../lib/blog";
 import homeStyles from "../styles/home.module.scss";
 
@@ -20,16 +20,18 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 
 const Home: NextPage<Props> = ({ postHeads }) => (
   <>
-    <Head>
-      <title>Luiz Felipe Gonçalves</title>
-      <meta name="description" content="Luiz Felipe Gonçalves' personal blog" />
-      <link rel="icon" href="/favicon.ico" />
-    </Head>
+    <Head
+      title="Luiz Felipe Gonçalves"
+      description="Luiz Felipe Gonçalves' personal blog"
+    />
 
     <PageWrapper>
       <header>
         <h1>Luiz Felipe Gonçalves</h1>
         <ul className={homeStyles.linkList}>
+          <li>
+            <Link href="/about">Sobre mim</Link>
+          </li>
           <li>
             <a href="https://twitter.com/lffgz">Twitter</a>
           </li>
@@ -37,7 +39,7 @@ const Home: NextPage<Props> = ({ postHeads }) => (
             <a href="https://github.com/lffg">GitHub</a>
           </li>
           <li>
-            <code>Discord @ Luiz#2029</code>
+            <code style={{ fontSize: "95%" }}>Discord @ Luiz#2029</code>
           </li>
         </ul>
       </header>
