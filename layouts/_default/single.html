@@ -1,0 +1,25 @@
+{{ define "main" }}
+  {{ if .IsTranslated }}
+    <ul>
+      {{ range .Translations }}
+        <li>
+          <a href="{{ .RelPermalink }}">
+            ({{ .Language.Lang }})
+            {{ .LinkTitle }}
+          </a>
+        </li>
+      {{ end }}
+    </ul>
+  {{ end }}
+
+  {{ .Content }}
+
+
+  <hr />
+
+  {{ with .Site.Params.repo }}
+    <a href="{{ .url }}/blob/{{ .branch }}/content/{{ $.File.Path }}">
+      Improve this page.
+    </a>
+  {{ end }}
+{{ end }}

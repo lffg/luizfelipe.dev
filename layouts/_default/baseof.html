@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="{{ .Language.LanguageCode }}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      {{ if .IsHome }}
+        {{ .Site.Title }}
+      {{ else }}
+        {{ .Title }} &middot;
+        {{ .Site.Title }}
+      {{ end }}
+    </title>
+  </head>
+  <body>
+    <div style="max-width: 900px; margin: 0 auto;">
+      <nav>
+        <a href="{{ .Site.Home.RelPermalink }}">{{ .Site.Title }}</a>
+        &middot;
+        {{ range .Site.Sites }}
+          {{ if not (eq .Language.Lang $.Site.Language.Lang) }}
+            <a href="{{ .Home.RelPermalink }}">{{ .Language.Lang }}</a>
+          {{ end }}
+        {{ end }}
+      </nav>
+      <hr />
+      {{ block "main" . }}{{ end }}
+
+      {{ with .GitInfo }}
+        <hr />
+        Site version
+        <a href="{{ $.Site.Params.repo.url }}/commit/{{ .Hash }}"
+          >{{ .AbbreviatedHash }}</a
+        >.
+      {{ end }}
+    </div>
+  </body>
+</html>

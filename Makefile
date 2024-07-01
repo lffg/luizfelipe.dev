@@ -1,4 +1,9 @@
+PROD ?= 0
 FLAGS := --printI18nWarnings
+
+ifeq ($(PROD),0)
+	FLAGS += --buildDrafts
+endif
 
 .PHONY: build
 build:

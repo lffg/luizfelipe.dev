@@ -1,0 +1,20 @@
+baseURL: luizfelipe.dev
+title: Luiz Felipe
+enableGitInfo: true
+
+params:
+  repo:
+    url: https://github.com/lffg/luizfelipe.dev
+    branch: main
+
+permalinks:
+  posts: '/blog/:slugorfilename'
+
+defaultContentLanguage: en
+languages:
+  en:
+    languageCode: en-US
+    languageName: English
+  pt:
+    languageCode: pt-BR
+    languageName: Português
