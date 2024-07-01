@@ -1,7 +1,7 @@
 {{ define "main" }}
   <header class="header">
     <h1 class="title">{{ .Site.Title }}</h1>
-    <p class="subtitle">Software Engineer and Computer Science Student</p>
+    <p class="subtitle">{{ .Site.Params.subtitle }}</p>
   </header>
 
   {{ .Content }}

@@ -15,9 +15,13 @@ languages:
   en:
     languageCode: en-US
     languageName: English
+    params:
+      subtitle: Software Engineer and Computer Science Student
   pt:
     languageCode: pt-BR
     languageName: Português
+    params:
+      subtitle: SWE e estudante de Ciência da Computação
 
 markup:
   highlight:
