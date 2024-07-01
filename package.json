@@ -1,0 +1,23 @@
+{
+  "private": true,
+  "devDependencies": {
+    "prettier": "3.3.2",
+    "prettier-plugin-go-template": "0.0.15"
+  },
+  "prettier": {
+    "plugins": [
+      "prettier-plugin-go-template"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "*.html"
+        ],
+        "options": {
+          "parser": "go-template"
+        }
+      }
+    ],
+    "proseWrap": "always"
+  }
+}
