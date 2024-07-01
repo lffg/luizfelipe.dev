@@ -3,3 +3,4 @@ public
 .hugo*
 *.lock
 *-lock.*
+resources

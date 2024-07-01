@@ -1,5 +1,5 @@
 baseURL: /
-title: Luiz Felipe
+title: Luiz Felipe Gonçalves
 enableGitInfo: true
 
 params:
@@ -18,3 +18,7 @@ languages:
   pt:
     languageCode: pt-BR
     languageName: Português
+
+markup:
+  highlight:
+    noClasses: false

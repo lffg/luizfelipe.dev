@@ -21,6 +21,7 @@
         name = "luizfelipe.dev";
         packages = with pkgs; [
           hugo
+          gnumake
         ];
       };
     });

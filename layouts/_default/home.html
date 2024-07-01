@@ -1,19 +1,28 @@
 {{ define "main" }}
+  <header class="header">
+    <h1 class="title">{{ .Site.Title }}</h1>
+    <p class="subtitle">Software Engineer and Computer Science Student</p>
+  </header>
+
   {{ .Content }}
 
-  {{ $posts := where .Site.RegularPages "Section" "posts" }}
-  {{ $posts := sort $posts "Date" "desc" }}
-  <ul>
-    {{ range $posts }}
-      <li>
-        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-        ({{ .Date | time.Format ":date_medium" }})
-        {{ if .Draft }}
-          <span style="font-weight: bold; color: rgb(177, 84, 3);"
-            >(draft)</span
-          >
-        {{ end }}
-      </li>
-    {{ end }}
-  </ul>
+
+  <div class="posts">
+    <h3>Posts</h3>
+    {{ $posts := where .Site.RegularPages "Section" "posts" }}
+    {{ $posts := sort $posts "Date" "desc" }}
+    <ul>
+      {{ range $posts }}
+        <li>
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          ({{ .Date | time.Format ":date_medium" }})
+          {{ if .Draft }}
+            <span style="font-weight: bold; color: rgb(177, 84, 3);">
+              (draft)
+            </span>
+          {{ end }}
+        </li>
+      {{ end }}
+    </ul>
+  </div>
 {{ end }}

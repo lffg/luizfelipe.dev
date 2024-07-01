@@ -7,33 +7,40 @@
       {{ if .IsHome }}
         {{ .Site.Title }}
       {{ else }}
-        {{ .Title }} &middot;
-        {{ .Site.Title }}
+        {{ .Title }}
       {{ end }}
     </title>
+
+    {{ $opts := dict "inlineImports" true }}
+    {{ with resources.Get "css/styles.css" | postCSS $opts }}
+      <link rel="stylesheet" href="{{ .RelPermalink }}" />
+    {{ end }}
   </head>
   <body>
-    <div style="max-width: 800px; margin: 0 auto;">
-      <nav style="display: flex; justify-content: space-between;">
-        <a href="{{ .Site.Home.RelPermalink }}">{{ .Site.Title }}</a>
+    <div id="site">
+      <nav class="nav">
+        {{ if not .IsHome }}
+          <a href="{{ .Site.Home.RelPermalink }}">↫ {{ i18n "site.home" }}</a>
+        {{ end }}
 
-        {{ range .Site.Sites }}
-          {{ if not (eq .Language.Lang $.Site.Language.Lang) }}
-            <a href="{{ .Home.RelPermalink }}">{{ .Language.Lang }}</a>
-          {{ end }}
+        {{ if .IsTranslated }}
+          <div class="translations">
+            {{ partial "icon/translation.svg" }}
+            {{ range .Translations }}
+              <a href="{{ .RelPermalink }}">{{ .Language.LanguageCode }}</a>
+            {{ end }}
+          </div>
         {{ end }}
       </nav>
 
-      <hr />
+      <div id="site-content" class="{{ .Kind }}">
+        {{ block "main" . }}{{ end }}
+      </div>
 
-      {{ block "main" . }}{{ end }}
-
-
-      <hr />
-      <footer style="display: flex; justify-content: space-between;">
+      <footer id="site-footer">
         <div>
           {{ with .GitInfo }}
-            {{ i18n "site-version" }}
+            {{ i18n "site.version" }}
             <a href="{{ $.Site.Params.repo.url }}/commit/{{ .Hash }}"
               >{{ .AbbreviatedHash }}</a
             >.
@@ -42,5 +49,9 @@
         {{ block "footer-item" . }}{{ end }}
       </footer>
     </div>
+
+    {{ with resources.Get "js/page.js" | js.Build }}
+      <script src="{{ .RelPermalink }}"></script>
+    {{ end }}
   </body>
 </html>

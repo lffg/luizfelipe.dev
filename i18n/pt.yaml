@@ -1,3 +1,7 @@
-site-version: Versão do site
-improve-page: Melhore esta página
-translations: Traduções
+site:
+  home: Início
+  version: Versão do site
+
+page:
+  translations: Traduções
+  improve: Melhore esta página
