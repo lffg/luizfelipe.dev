@@ -1,5 +1,14 @@
 {{ define "main" }}
+  <h1>{{ .Title }}</h1>
+
+  <div id="content">
+    {{ .Content }}
+  </div>
+
+  <hr />
+
   {{ if .IsTranslated }}
+    <h4>{{ i18n "translations" }}</h4>
     <ul>
       {{ range .Translations }}
         <li>
@@ -11,15 +20,14 @@
       {{ end }}
     </ul>
   {{ end }}
+{{ end }}
 
-  {{ .Content }}
-
-
-  <hr />
-
-  {{ with .Site.Params.repo }}
-    <a href="{{ .url }}/blob/{{ .branch }}/content/{{ $.File.Path }}">
-      Improve this page.
-    </a>
-  {{ end }}
+{{ define "footer-item" }}
+  <div>
+    {{ with .Site.Params.repo }}
+      <a href="{{ .url }}/blob/{{ .branch }}/content/{{ $.File.Path }}">
+        {{ i18n "improve-page" }}</a
+      >.
+    {{ end }}
+  </div>
 {{ end }}

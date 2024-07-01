@@ -13,26 +13,34 @@
     </title>
   </head>
   <body>
-    <div style="max-width: 900px; margin: 0 auto;">
-      <nav>
+    <div style="max-width: 800px; margin: 0 auto;">
+      <nav style="display: flex; justify-content: space-between;">
         <a href="{{ .Site.Home.RelPermalink }}">{{ .Site.Title }}</a>
-        &middot;
+
         {{ range .Site.Sites }}
           {{ if not (eq .Language.Lang $.Site.Language.Lang) }}
             <a href="{{ .Home.RelPermalink }}">{{ .Language.Lang }}</a>
           {{ end }}
         {{ end }}
       </nav>
+
       <hr />
+
       {{ block "main" . }}{{ end }}
 
-      {{ with .GitInfo }}
-        <hr />
-        Site version
-        <a href="{{ $.Site.Params.repo.url }}/commit/{{ .Hash }}"
-          >{{ .AbbreviatedHash }}</a
-        >.
-      {{ end }}
+
+      <hr />
+      <footer style="display: flex; justify-content: space-between;">
+        <div>
+          {{ with .GitInfo }}
+            {{ i18n "site-version" }}
+            <a href="{{ $.Site.Params.repo.url }}/commit/{{ .Hash }}"
+              >{{ .AbbreviatedHash }}</a
+            >.
+          {{ end }}
+        </div>
+        {{ block "footer-item" . }}{{ end }}
+      </footer>
     </div>
   </body>
 </html>
