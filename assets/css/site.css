@@ -58,17 +58,23 @@ a {
   min-height: 100%;
   display: flex;
   flex-direction: column;
+}
 
-  #site-content {
-    flex-grow: 1;
-  }
+#site-content {
+  padding-bottom: 3.5rem;
+  border-bottom: solid 1px var(--border);
+  margin-bottom: 1.5rem;
+}
 
-  #site-footer {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
+#home-inner {
+  margin-bottom: 2rem;
+}
+
+#site-footer {
+  font-size: 0.8em;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .nav {
@@ -93,11 +99,7 @@ a {
 }
 
 .header {
-  margin-bottom: 2.5rem;
-
-  .title {
-    margin-bottom: 0.75rem;
-  }
+  margin-bottom: 1.5rem;
 
   .subtitle {
     font-style: italic;

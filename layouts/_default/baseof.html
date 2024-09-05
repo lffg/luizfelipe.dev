@@ -40,10 +40,9 @@
       <footer id="site-footer">
         <div>
           {{ with .GitInfo }}
-            {{ i18n "site.version" }}
             <a href="{{ $.Site.Params.repo.url }}/commit/{{ .Hash }}"
               >{{ .AbbreviatedHash }}</a
-            >.
+            >
           {{ end }}
         </div>
         {{ block "footer-item" . }}{{ end }}

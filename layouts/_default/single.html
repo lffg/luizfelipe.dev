@@ -14,11 +14,12 @@
 {{ end }}
 
 {{ define "footer-item" }}
+  <div>&middot;</div>
   <div>
     {{ with .Site.Params.repo }}
       <a href="{{ .url }}/blob/{{ .branch }}/content/{{ $.File.Path }}">
         {{ i18n "page.improve" }}</a
-      >.
+      >
     {{ end }}
   </div>
 {{ end }}

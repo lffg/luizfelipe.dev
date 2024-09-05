@@ -1,7 +1,6 @@
 site:
   home: Home
-  version: Site version
 
 page:
   translations: Translations
-  improve: Improve this page
+  improve: improve this page
