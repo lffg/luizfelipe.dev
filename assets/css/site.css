@@ -1,6 +1,9 @@
 :root {
-  --bg: #fdf6e3;
-  --fg: #2a1d13;
+  --bg: #fff;
+  --bg-d1: #ddd;
+  --fg: #1e1e24;
+  --fg-l1: #2a2a31;
+  --fg-l2: #34343c;
   --border: rgb(0 0 0 / 10%);
   --link: #0071e3;
   --accent: orangered;
@@ -16,10 +19,6 @@
   box-sizing: border-box;
 }
 
-*:focus {
-  outline: dashed 3px var(--link);
-}
-
 html,
 body {
   height: 100%;
@@ -30,7 +29,7 @@ body {
   color: var(--fg);
   font-size: 18px;
   line-height: 1.5;
-  font-family: system-ui;
+  font-family: Georgia, Times, "Times New Roman", serif;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -139,9 +138,9 @@ a {
   }
 
   blockquote {
-    border-left: solid 4px hsl(39 32% 84% / 1);
+    border-left: solid 4px var(--bg-d1);
     padding: 0.5rem 1rem;
-    color: hsl(26 27% 25% / 1);
+    color: var(--fg-l2);
   }
 
   pre {
