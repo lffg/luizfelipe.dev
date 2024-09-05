@@ -8,7 +8,7 @@ params:
     branch: main
 
 permalinks:
-  posts: '/blog/:slugorfilename'
+  posts: '/:slugorfilename'
 
 defaultContentLanguage: en
 languages:
